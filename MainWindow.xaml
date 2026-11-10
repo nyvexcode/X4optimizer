@@ -1,0 +1,85 @@
+<Window x:Class="X4Optimizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="x4 Optimizer"
+        Width="460" SizeToContent="Height"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI">
+
+    <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}"
+            BorderThickness="1" CornerRadius="16">
+        <StackPanel>
+
+            <!-- Barra de título -->
+            <Grid Height="36" Background="Transparent" MouseLeftButtonDown="TitleBar_MouseDown">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,0,0">
+                    <Border Width="8" Height="8" CornerRadius="4" Background="{StaticResource AccentBrush}" Margin="0,0,8,0"/>
+                    <TextBlock Text="x4 Optimizer" Foreground="{StaticResource MutedBrush}" FontSize="12" FontWeight="SemiBold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="—" Style="{StaticResource CaptionButton}" Click="Minimize_Click"/>
+                    <Button Content="✕" Style="{StaticResource CloseButton}" Click="Close_Click"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Margin="28,8,28,24">
+
+                <TextBlock Text="Modo Batata" Foreground="{StaticResource TextBrush}" FontSize="30" FontWeight="Bold"/>
+                <TextBlock Text="Deixa o Roblox no gráfico mínimo para ganhar FPS."
+                           Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="0,4,0,20"/>
+
+                <!-- Status -->
+                <Border Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}"
+                        BorderThickness="1" CornerRadius="12" Padding="16,14">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Ellipse x:Name="DotConfig" Width="9" Height="9" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TxtConfig" Foreground="{StaticResource TextBrush}" FontSize="13"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Ellipse x:Name="DotRoblox" Width="9" Height="9" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TxtRoblox" Foreground="{StaticResource TextBrush}" FontSize="13"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse x:Name="DotBackup" Width="9" Height="9" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TxtBackup" Foreground="{StaticResource TextBrush}" FontSize="13"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- O que muda -->
+                <TextBlock Text="O QUE SERÁ ALTERADO" Foreground="{StaticResource MutedBrush}"
+                           FontSize="11" FontWeight="SemiBold" Margin="2,20,0,8"/>
+                <Border Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}"
+                        BorderThickness="1" CornerRadius="12" Padding="16,10">
+                    <ScrollViewer MaxHeight="150" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="ChangesList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding StringFormat=•  {0}}"
+                                               Foreground="{StaticResource MutedBrush}" FontSize="12.5" Margin="0,3"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+
+                <CheckBox x:Name="AutoClose" IsChecked="True" Margin="2,16,0,0"
+                          Foreground="{StaticResource MutedBrush}" FontSize="12.5"
+                          Content="Fechar o Roblox automaticamente ao aplicar"/>
+
+                <Button x:Name="ApplyButton" Content="Aplicar gráfico de batata"
+                        Style="{StaticResource PrimaryButton}" Margin="0,18,0,0" Click="Apply_Click"/>
+                <Button x:Name="RestoreButton" Content="Restaurar original"
+                        Style="{StaticResource SecondaryButton}" Margin="0,10,0,0" Click="Restore_Click"/>
+
+                <TextBlock x:Name="Message" TextWrapping="Wrap" TextAlignment="Center"
+                           FontSize="12.5" Margin="0,16,0,0" MinHeight="18"/>
+
+                <TextBlock Text="Baseado no 66mods (MIT)" Foreground="#4A5060" FontSize="10.5"
+                           HorizontalAlignment="Center" Margin="0,14,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
