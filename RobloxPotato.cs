@@ -1,10 +1,5 @@
-// x4 Optimizer - modo "gráfico de batata" para o Roblox.
-//
-// A lógica de edição do GlobalBasicSettings_13.xml é baseada no projeto 66mods
-// (MIT License, Copyright (c) 2026 66mods (66 and slavr) and contributors).
-// Veja LICENSE-66mods.txt.
-
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Xml.Linq;
 
